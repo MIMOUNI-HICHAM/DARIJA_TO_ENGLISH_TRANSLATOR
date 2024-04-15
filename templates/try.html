@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>HIM7-Ensiasd-TRANSLATOR</title>
+  <style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Trebuchet MS', sans-serif; /* Roboto est une police moderne et lisible */
+        background-image: url("{{ url_for('static', filename='background.jpg') }}");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: #f5f5f5; /* Couleur de fond claire pour un contraste doux */
+    }
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+    }
+    .translator-box {
+        width: 100%;
+        max-width: 900px;
+        background: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        border: 2px solid #4a47a3; /* Bordure bleu-violet pour un contraste élégant */
+    }
+    .translator-box header {
+        background: #4a47a3; /* Fond bleu-violet pour un contraste élégant */
+        color: #fff;
+        padding: 15px 20px;
+        text-align: center;
+        font-size: 1.5em;
+        border-bottom: 2px solid #fff;
+    }
+    .translator-box header h2 {
+        margin: 0;
+        font-size: 1.5em;
+    }
+    .translator-box .input-output {
+        display: flex;
+        border-bottom: 1px solid #ddd;
+    }
+    .translator-box .input-output .input-box,
+    .translator-box .input-output .output-box {
+        width: 50%;
+        padding: 20px;
+    }
+    .translator-box .input-output .input-box textarea,
+    .translator-box .input-output .output-box textarea {
+        width: 100%;
+        height: 150px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 10px;
+        font-size: 1em;
+        resize: none;
+    }
+    .translator-box .input-output .output-box {
+        border-left: 1px solid #ddd;
+    }
+    .translator-box .actions {
+        padding: 20px;
+        text-align: center;
+    }
+    .translator-box .actions button {
+        padding: 10px 20px;
+        font-size: 1em;
+        color: #fff;
+        background:  #4a47a3; /* Bouton bleu-violet pour un contraste élégant */
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+    .translator-box .actions button:hover {
+        background: #7a77ff; /* Bleu-violet plus clair au survol */
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(246, 8, 147, 0.5);
+    }
+</style>
+
+
+</head>
+<body>
+    <div class="container">
+        <div class="translator-box">
+            <header>
+                <h2>English to Darija Translator</h2>
+            </header>
+            <!-- Premier formulaire de traduction -->
+            <form method="POST" action="/translate">
+                <div class="input-output">
+                    <div class="input-box">
+                        <textarea name="english-input" placeholder="Enter English text" required></textarea>
+                    </div>
+                    <div class="output-box">
+                        <textarea name="darija-output" placeholder="Translation" disabled>{% if output %}{{ output }}{% endif %}</textarea>
+                    </div>
+                </div>
+                <div class="actions">
+                    <button type="submit">Translate</button>
+                </div>
+            </form>
+
+            <!-- Deuxième formulaire pour ajouter de nouvelles phrases -->
+            <form method="POST" action="/add_phrase">
+                <header>
+                    <h2>Contribute to our dictionnary</h2>
+                
+                </header>
+                
+                
+                <div class="input-output">
+                    <div class="input-box">
+                        <input type="text" name="english-phrase" placeholder="Enter Darija phrase" required>
+                    </div>
+                    <div class="output-box">
+                        <input type="text" name="darija-phrase" placeholder="Enter English translation" required>
+                    </div>
+                </div>
+                <div class="actions">
+                    <button type="submit">Add Phrase</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
