@@ -1,8 +1,3 @@
-Sure! Here's a clean and professional `README.md` for your project that fits GitHub style and your app’s description:
-
----
-
-```markdown
 # English to Darija Translator 🇬🇧➡️🇲🇦
 
 A simple yet clever web-based **English to Darija (Moroccan Arabic)** translator built with Flask.
