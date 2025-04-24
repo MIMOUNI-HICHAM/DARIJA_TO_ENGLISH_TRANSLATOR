@@ -83,7 +83,3 @@ labas 3lik,how are you
 
 Feel free to contribute or suggest improvements!
 ```
-
----
-
-Let me know if you'd like to include screenshots or deployment steps too!
